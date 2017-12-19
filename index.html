@@ -1,0 +1,141 @@
+
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+		<style>
+				.love {
+				position: absolute;
+				width: 300px;
+				height: 480px;
+				left: 600px;
+				top:200px;
+				transform-style: preserve-3d;
+				animation: goto 50s linear infinite;
+			}
+			
+			.love .lo{
+				position: absolute;
+				width: 300px;
+				height: 480px;
+				border: 1px red solid;
+				border-width: 1px 1px 0 0;
+				border-radius: 50% 50% 50% /40% 50% 0%;
+				transform-style: preserve-3d;
+			}
+			
+			.page {
+				width: 250px;
+				height: 250px;
+				opacity: 1;
+				position: absolute;
+				top: 80px;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				margin: auto;
+			}
+			
+			.page img {
+				width: 250px;
+				height: 250px;
+			}
+			
+			.page:nth-of-type(1) {
+				transform: rotateX(-90deg) translateZ(-125px);
+			}
+			
+			.page:nth-of-type(2) {
+				transform: rotateX(90deg) translateZ(-125px);
+			}
+			
+			.page:nth-of-type(3) {
+				transform: rotateY(-90deg) translateZ(-125px);
+			}
+			
+			.page:nth-of-type(4) {
+				transform: rotateY(90deg) translateZ(-125px);
+			}
+			
+			.page:nth-of-type(5) {
+				transform: translateZ(125px);
+			}
+			
+			.page:nth-of-type(6) {
+				transform: translateZ(-125px);
+			}
+			
+			@keyframes goto {
+				0% {
+					transform: rotateX(0deg) rotateY(0deg);
+					-webkit-transform: rotateX(0deg) rotateY(0deg);
+				}
+				10% {
+					transform: rotateX(0deg) rotateY(180deg);
+					-webkit-transform: rotateX(0deg) rotateY(180deg);
+				}
+				20% {
+					transform: rotateX(-180deg) rotateY(180deg);
+					-webkit-transform: rotateX(-180deg) rotateY(180deg);
+				}
+				30% {
+					transform: rotateX(-360deg) rotateY(180deg);
+					-webkit-transform: rotateX(-360deg) rotateY(180deg);
+				}
+				40% {
+					transform: rotateX(-360deg) rotateY(360deg);
+					-webkit-transform: rotateX(-360deg) rotateY(360deg);
+				}
+				50% {
+					transform: rotateX(-180deg) rotateY(360deg);
+					-webkit-transform: rotateX(-180deg) rotateY(360deg);
+				}
+				60% {
+					transform: rotateX(90deg) rotateY(180deg);
+					-webkit-transform: rotateX(90deg) rotateY(180deg);
+				}
+				70% {
+					transform: rotateX(0) rotateY(180deg);
+					-webkit-transform: rotateX(0) rotateY(180deg);
+				}
+				80% {
+					transform: rotateX(90deg) rotateY(90deg);
+					-webkit-transform: rotateX(90deg) rotateY(90deg);
+				}
+				90% {
+					transform: rotateX(90deg) rotateY(0);
+					-webkit-transform: rotateX(90deg) rotateY(0);
+				}
+				100% {
+					transform: rotateX(0) rotateY(0);
+					-webkit-transform: rotateX(0) rotateY(0);
+				}				
+				
+		</style>
+	</head>
+
+	<body>
+		<div class="love">
+			
+				<div class="page"><img src="img/1.jpg" /></div>
+				<div class="page"><img src="img/2.jpg" /></div>
+				<div class="page"><img src="img/3.jpg" /></div>
+				<div class="page"><img src="img/4.jpg" /></div>
+				<div class="page"><img src="img/5.jpg" /></div>
+				<div class="page"><img src="img/6.jpg" /></div>
+		</div>
+		<script>
+			var loves = document.getElementsByClassName("love")[0];
+			for(var i = 0; i < 36; i++) {
+				var oDiv = document.createElement("div");
+				oDiv.style.transform = "rotateY(" + i * 10 + "deg) rotateZ(45deg) translateX(90px)";
+				oDiv.className="lo";
+				loves.appendChild(oDiv);
+			}
+		</script>
+	</body>
+
+</html>
